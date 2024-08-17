@@ -12,13 +12,13 @@ const Page = async () => {
     "recommendations/anime",
     "entry"
   );
-  recommendedAnime = reproduce(recommendedAnime, 4)
-  
+  recommendedAnime = reproduce(recommendedAnime, 4);
+
   return (
-    <>
+    <div className="bg-color-gray-900">
       {/* anime terpopuler */}
       <section>
-        <div className="md:w-3/4 w-full mx-auto">
+        <div className="w-full mx-auto md:w-3/4">
           <Header
             title="Paling Populer"
             linkTitle="Lihat Semua"
@@ -28,12 +28,12 @@ const Page = async () => {
         </div>
       </section>
       <section>
-        <div className="md:w-3/4 w-full mx-auto">
+        <div className="w-full mx-auto md:w-3/4">
           <Header title="Rekomendasi" />
           <AnimeList api={recommendedAnime} />
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

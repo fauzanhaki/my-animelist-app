@@ -15,8 +15,8 @@ const Page = async ({ params: { id } }) => {
   });
 
   return (
-    <>
-      <div className="pt-4 px-4">
+    <div className="w-full mx-auto md:w-3/4">
+      <div className="px-4 pt-4">
         <h3 className="text-2xl text-color-primary">
           {anime.data.title} - {anime.data.year}
         </h3>
@@ -29,36 +29,36 @@ const Page = async ({ params: { id } }) => {
           />
         )}
       </div>
-      <div className="pt-4 px-4 flex gap-2 text-color-primary overflow-x-auto">
-        <div className="w-36 flex flex-col justify-center items-center rounded border border-color-primary p-2">
+      <div className="flex flex-wrap gap-2 px-4 pt-4 overflow-x-auto text-color-primary">
+        <div className="flex items-center justify-center gap-4 px-4 py-1 border-2 rounded-xl border-color-gray-400">
           <h3>PERINGKAT</h3>
           <p>{anime.data.rank}</p>
         </div>
-        <div className="w-36 flex flex-col justify-center items-center rounded border border-color-primary p-2">
+        <div className="flex items-center justify-center gap-4 px-4 py-1 border-2 rounded-xl border-color-gray-400">
           <h3>SKOR</h3>
           <p>{anime.data.score}</p>
         </div>
-        <div className="w-36 flex flex-col justify-center items-center rounded border border-color-primary p-2">
+        <div className="flex items-center justify-center gap-4 px-4 py-1 border-2 rounded-xl border-color-gray-400">
           <h3>ANGGOTA</h3>
           <p>{anime.data.members}</p>
         </div>
-        <div className="w-36 flex flex-col justify-center items-center rounded border border-color-primary p-2">
+        <div className="flex items-center justify-center gap-4 px-4 py-1 border-2 rounded-xl border-color-gray-400">
           <h3>EPISODE</h3>
           <p>{anime.data.episodes}</p>
         </div>
       </div>
-      <div className="pt-4 px-4 flex sm:flex-nowrap flex-wrap gap-2 text-color-primary">
+      <div className="flex flex-wrap gap-4 px-4 pt-4 mx-auto sm:flex-nowrap text-color-primary">
         <Image
           src={anime.data.images.webp.image_url}
           alt={anime.data.images.jpg.image_url}
           width={250}
           height={250}
-          className="w-full rounded object-cover"
+          className="object-cover w-full rounded-md"
         />
-        <p className="text-justify text-xl">{anime.data.synopsis}</p>
+        <p className="text-xl text-justify">{anime.data.synopsis}</p>
       </div>
       <div className="p-4">
-        <h3 className="text-color-primary text-2xl mb-2">Komentar Penonton</h3>
+        <h3 className="mb-2 text-2xl text-color-primary">Komentar Penonton</h3>
         <CommentBox anime_mal_id={id} />
         {user && (
           <CommentInput
@@ -72,7 +72,7 @@ const Page = async ({ params: { id } }) => {
       <div>
         <VideoPlayer youtubeId={anime.data.trailer.youtube_id} />
       </div>
-    </>
+    </div>
   );
 };
 
